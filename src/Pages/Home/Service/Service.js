@@ -1,15 +1,22 @@
 import React from 'react';
+import Button from 'react-bootstrap/Button';
+import { Link } from 'react-router-dom';
 import './Service.css';
 
 const Service = ({ service }) => {
     // const {service} = props;
-    const { name, price, description, img } = service;
+    const { id, name, price, description, img } = service;
     return (
         <div className="service">
             <img src={img} alt="" />
-            <h3>{name}</h3>
-            <h5>Price: {price}</h5>
-            <p className="px-3">{description}</p>
+            <div className="p-3">
+                <h3>{name}</h3>
+                <h5>Price: {price}</h5>
+                <p className="px-3">{description}</p>
+                <Link to={`/booking/${id}`}>
+                    <Button variant="warning">Book {name.toLowerCase()}</Button>
+                </Link>
+            </div>
         </div>
     );
 };
