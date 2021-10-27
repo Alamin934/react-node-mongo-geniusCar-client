@@ -5,7 +5,7 @@ import { useState } from 'react';
 const ManageServices = () => {
     const [services, setServices] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/services')
+        fetch('https://protected-springs-37614.herokuapp.com/services')
             .then(res => res.json())
             .then(data => setServices(data));
     }, []);
@@ -13,7 +13,7 @@ const ManageServices = () => {
     const handleDeleteService = id => {
         const proceed = window.confirm('Are you sure, You want to delete this Service');
         if (proceed) {
-            fetch(`http://localhost:5000/services/${id}`, {
+            fetch(`https://protected-springs-37614.herokuapp.com/services/${id}`, {
                 method: "DELETE"
             })
                 .then(res => res.json())
